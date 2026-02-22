@@ -79,12 +79,12 @@
                 selectedIndustryNews: null,
 
                 sectorConfig: {
-                    '宏观': { color: 'text-slate-600', bg: 'bg-slate-50', border: 'border-slate-200', gradient: 'from-slate-700 to-slate-900', icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6' },
-                    '平台': { color: 'text-sky-600', bg: 'bg-sky-50', border: 'border-sky-200', gradient: 'from-sky-600 to-blue-800', icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9' },
-                    '美妆': { color: 'text-pink-600', bg: 'bg-pink-50', border: 'border-pink-200', gradient: 'from-pink-500 to-rose-700', icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z' },
-                    '食品饮料': { color: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-200', gradient: 'from-orange-500 to-amber-700', icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z' },
-                    '母婴': { color: 'text-rose-600', bg: 'bg-rose-50', border: 'border-rose-200', gradient: 'from-rose-400 to-red-600', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
-                    '宠物': { color: 'text-emerald-600', bg: 'bg-emerald-50', border: 'border-emerald-200', gradient: 'from-emerald-500 to-teal-700', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' }
+                    '宏观': { color: 'text-slate-600', bg: 'bg-slate-50', border: 'border-slate-200', gradient: 'from-slate-700 to-slate-900' },
+                    '平台': { color: 'text-sky-600', bg: 'bg-sky-50', border: 'border-sky-200', gradient: 'from-sky-600 to-blue-800' },
+                    '美妆': { color: 'text-pink-600', bg: 'bg-pink-50', border: 'border-pink-200', gradient: 'from-pink-500 to-rose-700' },
+                    '食品饮料': { color: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-200', gradient: 'from-orange-500 to-amber-700' },
+                    '母婴': { color: 'text-rose-600', bg: 'bg-rose-50', border: 'border-rose-200', gradient: 'from-rose-400 to-red-600' },
+                    '宠物': { color: 'text-emerald-600', bg: 'bg-emerald-50', border: 'border-emerald-200', gradient: 'from-emerald-500 to-teal-700' }
                 },
                 sectorStyles: {
                     '宏观': 'text-slate-600 bg-slate-50 border-slate-200',
@@ -93,10 +93,6 @@
                     '食品饮料': 'text-orange-600 bg-orange-50 border-orange-200',
                     '母婴': 'text-rose-600 bg-rose-50 border-rose-200',
                     '宠物': 'text-emerald-600 bg-emerald-50 border-emerald-200'
-                },
-                sectorTitles: {
-                    '宏观': 'text-slate-800', '平台': 'text-sky-800', '美妆': 'text-pink-800',
-                    '食品饮料': 'text-orange-800', '母婴': 'text-rose-800', '宠物': 'text-emerald-800'
                 },
                 tabs: [
                     { id: 'home', name: '本期概览' }, { id: 'all', name: '全部资讯' }, { id: '宏观', name: '宏观经济' }, { id: '平台', name: '平台动态' },
@@ -258,13 +254,10 @@
                 highlightText(text) {
                     if (!text) return '';
                     let cleanText = text.replace(/\*\*/g, '');
-                    // 1. 数字和日期的高亮
                     cleanText = cleanText.replace(/(\d+(?:\.\d+)?(?:万|亿|亿元|美元|%)|202\d年\d+月|TOP\d+)/g, '<span class="hl-data">$1</span>');
-                    // 2. 搜索关键词高亮
                     if (this.searchQuery.trim() !== '') {
                         const q = this.searchQuery.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                         const regex = new RegExp(`(${q})`, 'gi');
-                        // 避免替换到已经被 span 包裹的内部内容
                         cleanText = cleanText.replace(regex, '<mark>$1</mark>');
                     }
                     return cleanText;
@@ -274,8 +267,6 @@
                 async copyArticle(item) {
                     const title = item.title || '';
                     const content = item.content || item.summary || '';
-                    
-                    // 准备两种格式：纯文本（带括号）和 HTML（加粗）
                     const plainText = `【${title}】\n${content}`;
                     const htmlText = `<strong>${title}</strong><br><br>${content.replace(/\n/g, '<br>')}`;
 
@@ -287,7 +278,6 @@
                         await navigator.clipboard.write([clipboardItem]);
                         this.showToast('复制成功，已保留加粗格式！');
                     } catch (err) {
-                        // 降级方案
                         await navigator.clipboard.writeText(plainText);
                         this.showToast('复制成功！');
                     }
@@ -343,6 +333,7 @@
 
                 openDetail(item) { this.selectedNews = item; document.body.style.overflow = 'hidden'; },
                 closeDetail() { this.selectedNews = null; document.body.style.overflow = 'auto'; },
+                loadMore() { this.displayLimit += 30; },
 
                 getSectorHighlight(cat) {
                     if (!this.newsData) return { main: { title: '加载中...' }, list: [], count: 0 };
@@ -499,28 +490,68 @@
         </div>
 
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 pb-24">
+            
             <div x-show="activeTab === 'home' && !searchQuery" class="space-y-8" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2">
+                
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="md:col-span-2 bg-white rounded-xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-1 h-full bg-brand-primary"></div>
                         <h3 class="text-lg font-bold mb-4 text-brand-primary flex items-center"><svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> 本周综述 Summary</h3>
-                        <p class="text-sm text-gray-700 leading-relaxed text-justify-custom" x-html="highlightText(zhixingInsight.content)"></p>
+                        <p class="text-sm text-gray-700 leading-relaxed text-justify-custom" x-text="currentIssueData?.summary || '暂无导读内容'"></p>
                     </div>
-                    <div class="bg-brand-dark rounded-xl shadow-lg p-6 text-white flex flex-col justify-center relative overflow-hidden">
+                    
+                    <div class="bg-brand-dark rounded-xl shadow-lg p-6 text-white flex flex-col items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-dark opacity-80"></div>
-                        <div class="relative z-10">
-                            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">本周数据 Data Highlight</h3>
-                            <div class="flex items-center justify-between mb-4"><span class="text-2xl font-black text-brand-accent" x-text="newsData.length"></span></div>
+                        <div class="relative z-10 w-full h-full flex flex-col items-center">
+                            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 w-full text-left">资讯分布 Data Highlight</h3>
+                            <div class="w-full h-32 relative"><canvas id="readerChart"></canvas></div>
+                            <div class="mt-4 flex items-center justify-between w-full">
+                                <span class="text-xs text-gray-400">Total News</span>
+                                <span class="text-2xl font-black text-brand-accent" x-text="newsData.length"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="relative bg-brand-primary rounded-xl shadow-xl overflow-hidden min-h-[300px] flex flex-col justify-end p-8 group cursor-pointer" @click="openDetail(newsData.find(i => i.highlight))">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-primary/50 to-transparent"></div>
-                    <div class="relative z-10 transform group-hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex items-center gap-3 mb-4"><span class="bg-brand-accent text-brand-dark text-xs font-black px-3 py-1 rounded shadow-lg tracking-widest">COVER STORY</span></div>
-                        <h2 class="text-3xl md:text-4xl font-black text-white mb-4 leading-tight shadow-black drop-shadow-lg" x-text="newsData.find(i => i.highlight)?.title"></h2>
+                <template x-if="newsData && newsData.find(i => i.highlight)">
+                    <div class="relative bg-brand-primary rounded-xl shadow-xl overflow-hidden min-h-[300px] flex flex-col justify-end p-8 group cursor-pointer" @click="openDetail(newsData.find(i => i.highlight))">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-primary/50 to-transparent"></div>
+                        <div class="relative z-10 transform group-hover:-translate-y-2 transition-transform duration-300">
+                            <div class="flex items-center gap-3 mb-4"><span class="bg-brand-accent text-brand-dark text-xs font-black px-3 py-1 rounded shadow-lg tracking-widest">COVER STORY</span></div>
+                            <h2 class="text-3xl md:text-4xl font-black text-white mb-4 leading-tight shadow-black drop-shadow-lg" x-text="newsData.find(i => i.highlight)?.title"></h2>
+                        </div>
                     </div>
+                </template>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <template x-for="cat in ['宏观', '平台', '美妆', '食品饮料', '母婴', '宠物']" :key="cat">
+                        <div x-show="getSectorHighlight(cat).count > 0" class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all p-5 flex flex-col">
+                            <div class="flex justify-between items-center border-b border-gray-50 pb-3 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span :class="sectorStyles[cat] || 'text-gray-600 bg-gray-50 border-gray-200'" class="px-2 py-1 text-xs font-bold rounded border" x-text="cat"></span>
+                                </div>
+                                <span class="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-0.5 rounded-full" x-text="getSectorHighlight(cat).count + ' 条'"></span>
+                            </div>
+                            
+                            <div @click="openDetail(getSectorHighlight(cat).main)" class="cursor-pointer group mb-4 flex-1">
+                                <h4 class="text-sm font-bold text-gray-800 group-hover:text-brand-primary mb-2 line-clamp-2 leading-snug" x-text="getSectorHighlight(cat).main.title"></h4>
+                                <p class="text-xs text-gray-500 line-clamp-2" x-text="getSectorHighlight(cat).main.summary || getSectorHighlight(cat).main.content"></p>
+                            </div>
+
+                            <div class="space-y-2 border-t border-gray-50 pt-3">
+                                <template x-for="item in getSectorHighlight(cat).list" :key="item.title">
+                                    <div @click="openDetail(item)" class="cursor-pointer group flex items-start gap-2">
+                                        <span class="text-brand-accent mt-0.5 text-xs">▪</span>
+                                        <h5 class="text-xs text-gray-600 group-hover:text-brand-primary line-clamp-1 flex-1" x-text="item.title"></h5>
+                                    </div>
+                                </template>
+                            </div>
+                            
+                            <button @click="switchTab(cat)" class="mt-4 w-full py-2 bg-slate-50 hover:bg-brand-soft text-slate-600 hover:text-brand-primary text-xs font-bold rounded-lg transition-colors border border-slate-100">
+                                阅读全部 <span x-text="cat"></span> 资讯 →
+                            </button>
+                        </div>
+                    </template>
                 </div>
             </div>
 
@@ -699,7 +730,7 @@
         <div class="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl mx-4 overflow-hidden" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0">
             <div class="flex items-center border-b border-gray-100 p-4">
                 <svg class="w-6 h-6 text-gray-400 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                <input type="text" x-model="globalSearchQuery" placeholder="全库检索关键词..." class="flex-1 text-lg border-none focus:ring-0 px-4 py-2 text-gray-800 placeholder-gray-400" autofocus>
+                <input type="text" x-model="globalSearchQuery" placeholder="搜索全库资讯 (如: 拼多多, 降息...)" class="flex-1 text-lg border-none focus:ring-0 px-4 py-2 text-gray-800 placeholder-gray-400" autofocus>
                 <button @click="showGlobalSearch = false" class="text-gray-400 hover:text-gray-600 font-bold px-2 text-sm">ESC</button>
             </div>
             <div class="max-h-[60vh] overflow-y-auto bg-gray-50">
