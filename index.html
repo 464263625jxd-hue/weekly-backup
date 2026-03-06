@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>知行周刊 · 数字化知识库</title>    
+    <title>知行周刊 · 数字化知识库</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    
     <!-- 性能优化：资源预加载 -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -274,6 +279,48 @@
 
                 openDetail(item) { this.selectedNews = item; document.body.style.overflow = 'hidden'; },
                 closeDetail() { this.selectedNews = null; document.body.style.overflow = 'auto'; },
+                
+                // 分享功能：复制资讯链接
+                async shareNews(item) {
+                    const shareUrl = window.location.href.split('#')[0];
+                    const shareText = `${item.title} - 知行周刊 No.${this.currentIssueData?.id}`;
+                    
+                    try {
+                        // 尝试使用 Clipboard API
+                        if (navigator.clipboard) {
+                            await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+                            this.showToast('✅ 链接已复制到剪贴板');
+                        } else {
+                            // 降级方案
+                            const textarea = document.createElement('textarea');
+                            textarea.value = `${shareText}\n${shareUrl}`;
+                            document.body.appendChild(textarea);
+                            textarea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textarea);
+                            this.showToast('✅ 链接已复制');
+                        }
+                    } catch (err) {
+                        console.error('分享失败:', err);
+                        this.showToast('❌ 复制失败，请手动复制');
+                    }
+                },
+                
+                // 显示提示消息
+                showToast(message) {
+                    // 移除旧的 toast
+                    const oldToast = document.querySelector('.toast-notification');
+                    if (oldToast) oldToast.remove();
+                    
+                    // 创建新的 toast
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-notification fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-xl shadow-2xl z-[300] text-sm font-medium animate-bounce';
+                    toast.textContent = message;
+                    document.body.appendChild(toast);
+                    
+                    // 3 秒后自动消失
+                    setTimeout(() => toast.remove(), 3000);
+                },
 
                 getSectorHighlight(cat) {
                     if (!this.newsData) return { main: { title: '加载中...' }, list: [], count: 0 };
@@ -544,7 +591,15 @@
                 <div class="modal-content relative bg-white w-full sm:max-w-3xl sm:rounded-2xl h-[95vh] sm:h-auto sm:max-h-[85vh] flex flex-col shadow-2xl overflow-hidden transform transition-all" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-y-full sm:translate-y-10 sm:opacity-0" x-transition:enter-end="translate-y-0 sm:translate-y-0 sm:opacity-100">
                     <div class="flex justify-between items-center px-5 py-4 border-b border-gray-100 bg-gray-50/80 backdrop-blur sticky top-0 z-10">
                          <div class="flex gap-2 items-center"><span class="text-[10px] font-black bg-brand-primary text-white px-2 py-1 rounded tracking-wider" x-text="selectedNews?.category"></span><span class="text-xs text-gray-500 font-bold" x-text="selectedNews?.subCategory"></span></div>
-                         <button @click="closeDetail()" class="p-2 bg-gray-200/50 rounded-full hover:bg-gray-300 text-gray-500 transition-colors"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+                         <div class="flex gap-2">
+                             <!-- 分享按钮 -->
+                             <button @click="shareNews(selectedNews)" class="p-2 bg-brand-primary/10 rounded-full hover:bg-brand-primary/20 text-brand-primary transition-colors" title="复制链接">
+                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                 </svg>
+                             </button>
+                             <button @click="closeDetail()" class="p-2 bg-gray-200/50 rounded-full hover:bg-gray-300 text-gray-500 transition-colors"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+                         </div>
                     </div>
                     <div class="p-6 sm:p-10 overflow-y-auto article-content text-lg leading-relaxed bg-white">
                         <h2 class="text-2xl sm:text-3xl font-black mb-6 text-gray-900 leading-snug" x-text="selectedNews?.title"></h2>
