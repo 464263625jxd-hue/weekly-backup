@@ -316,9 +316,9 @@
                     const url = window.location.href.split('#')[0];
                     
                     // 清理 content 中的 markdown 格式
-                    let cleanContent = (item.content || item.summary || '').replace(/\*\*/g, '');
+                    let cleanContent = (item.content || '').replace(/\*\*/g, '');
                     
-                    // 分段处理长内容（每段不超过 200 字）
+                    // 分段处理长内容（最多 3 段）
                     const paragraphs = cleanContent.split(/\n\n+/);
                     const truncatedContent = paragraphs.slice(0, 3).join('\n\n');
                     const hasMore = paragraphs.length > 3;
@@ -334,15 +334,11 @@ ${divider}
 【期号】No.${issueId}
 【时间】${new Date().toLocaleDateString('zh-CN')}
 
-【摘要】
-${item.summary || cleanContent.substring(0, 200)}...
-
-【完整内容】
-${truncatedContent}${hasMore ? '\n\n...' : ''}
+【内容】
+${truncatedContent}${hasMore ? '\n\n......\n（内容过长，已截断）' : ''}
 
 ${divider}
 🔗 查看全文：${url}
-💡 访问主页：知行周刊数字化知识库
 ${divider}
 `.trim();
                 },
@@ -361,6 +357,48 @@ ${divider}
                     
                     // 3 秒后自动消失
                     setTimeout(() => toast.remove(), 3000);
+                },
+                
+                // 智能分段处理
+                formatParagraphs(content) {
+                    if (!content) return [];
+                    
+                    // 清理 markdown 格式
+                    let cleanContent = content.replace(/\*\*/g, '');
+                    
+                    // 首先尝试按双换行符分段
+                    let paragraphs = cleanContent.split(/\n\n+/);
+                    
+                    // 如果没有双换行符，尝试按单换行符分段
+                    if (paragraphs.length === 1 && cleanContent.includes('\n')) {
+                        paragraphs = cleanContent.split(/\n+/);
+                    }
+                    
+                    // 如果段落太长（超过 500 字），尝试按句号分段
+                    const processedParagraphs = [];
+                    paragraphs.forEach(p => {
+                        p = p.trim();
+                        if (!p) return;
+                        
+                        if (p.length > 500) {
+                            // 按句号分段
+                            const sentences = p.split(/(?<=[。！？.!?])\s*/);
+                            let currentPara = '';
+                            sentences.forEach(s => {
+                                if ((currentPara + s).length > 400) {
+                                    processedParagraphs.push(this.formatContent(currentPara));
+                                    currentPara = s;
+                                } else {
+                                    currentPara += s;
+                                }
+                            });
+                            if (currentPara) processedParagraphs.push(this.formatContent(currentPara));
+                        } else {
+                            processedParagraphs.push(this.formatContent(p));
+                        }
+                    });
+                    
+                    return processedParagraphs;
                 },
 
                 getSectorHighlight(cat) {
@@ -646,7 +684,13 @@ ${divider}
                     <div class="p-6 sm:p-10 overflow-y-auto article-content text-lg leading-relaxed bg-white">
                         <h2 class="text-2xl sm:text-3xl font-black mb-6 text-gray-900 leading-snug" x-text="selectedNews?.title"></h2>
                         <div class="flex items-center space-x-4 text-xs text-gray-400 mb-8 pb-6 border-b border-gray-100 font-mono"><span>来源：知行周刊整理</span><span x-text="'Issue No.' + currentIssueData?.id"></span></div>
-                        <template x-for="(p, i) in selectedNews?.content?.split('\n\n')"><p x-html="formatContent(p)" class="mb-5 text-gray-700 text-justify-custom"></p></template>
+                        
+                        <!-- 内容显示：智能分段 -->
+                        <div class="prose prose-slate max-w-none">
+                            <template x-for="(paragraph, index) in formatParagraphs(selectedNews?.content || '')" :key="index">
+                                <p x-html="paragraph" class="mb-5 text-gray-700 text-justify-custom last:mb-0"></p>
+                            </template>
+                        </div>
                     </div>
                 </div>
             </div>
