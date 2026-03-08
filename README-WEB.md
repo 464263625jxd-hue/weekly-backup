@@ -4,7 +4,7 @@
 
 **GitHub Pages**: https://464263625jxd-hue.github.io/zhixing-weekly-web/
 
-**最新版本**: v1.1.0 (2026-03-06)
+**最新版本**: v2.0.0 (2026-03-09) - 三模型优化版
 
 ---
 
@@ -260,6 +260,32 @@ function platformApp() {
 
 ## 📝 更新日志
 
+### v2.0.0 (2026-03-09) - 三模型优化版
+
+**核心特性**:
+- ✅ 引入 GLM-5 + Kimi + MiniMax 三模型并行审查
+- ✅ 文件组织规范化（sources/ + issues/ + scripts/ + docs/）
+- ✅ 封面文字优化（删除期数说明，使用内容总结）
+- ✅ highlight/isAlert 打标优化（6 板块完整覆盖）
+
+**第 68 期实战成果**:
+- ✅ highlight: 6 条→14 条（+133%，6 板块完整）
+- ✅ isAlert: 5 条→25 条（+400%，6 板块完整）
+- ✅ 封面图片：与第 67 期区分（不同 Unsplash 图片）
+- ✅ 封面文字：期数说明→内容总结
+- ✅ Insight: 补充食品饮料板块，6 板块完整
+- ✅ 内容完整性：删除章节标题，合并过短资讯
+
+**文档更新**:
+- ✅ 新增 `docs/WORKFLOW_v2.md` - 五阶段制作工作流
+- ✅ 新增 `docs/TRI-MODEL-REVIEW.md` - 三模型审查技能
+- ✅ 新增 `docs/STANDARDIZATION.md` - 文件组织规范
+
+**技术优化**:
+- ✅ 三模型并行审查流程（GLM-5 代码/Kimi 内容/MiniMax 数据）
+- ✅ 自动化修复脚本（fix_issue.py）
+- ✅ 质量评分标准（≥85 分目标）
+
 ### v1.1.2 (2026-03-06 13:20) - 内容显示修复
 
 **问题修复**:
@@ -316,7 +342,55 @@ function platformApp() {
 
 ---
 
-**最后更新**: 2026-03-06 13:20  
-**当前版本**: v1.1.2  
-**总提交数**: 12+ commits  
-**优化阶段**: ✅ P0+P1 + 分享优化 + 内容修复完成
+**最后更新**: 2026-03-09 02:15  
+**当前版本**: v2.0.0（三模型优化版）  
+**总提交数**: 20+ commits  
+**优化阶段**: ✅ 三模型审查 + 文件规范化 + Gitee 移除完成
+
+---
+
+## 🎯 第 69 期制作流程（标准化）
+
+### 1. 准备源文件
+```bash
+cp /path/to/知行周刊 - 第六十九期.docx ~/Desktop/zhixing-weekly/sources/issue-69.docx
+```
+
+### 2. 创建期数目录
+```bash
+mkdir -p ~/Desktop/zhixing-weekly/issues/issue-69
+```
+
+### 3. 制作数据
+```bash
+cd ~/Desktop/zhixing-weekly
+python3 scripts/make_issue.py --issue 69 --source sources/issue-69.docx
+```
+
+### 4. 三模型审查
+```bash
+# 参考 docs/TRI-MODEL-REVIEW.md
+# 启动 GLM-5 + Kimi + MiniMax 并行审查
+```
+
+### 5. 修复并整合
+```bash
+python3 scripts/fix_issue.py --issue 69
+# 整合到 data.json
+```
+
+### 6. 提交推送
+```bash
+git add -A
+git commit -m "Issue 69: 第 69 期知行周刊（YYYY.MM.DD-MM.DD）"
+git push origin main  # 推送到备用仓库
+# 用户确认后推送到正式仓库
+```
+
+---
+
+## 📚 文档索引
+
+- **制作工作流**: `docs/WORKFLOW_v2.md` - 五阶段审查流程
+- **三模型审查**: `docs/TRI-MODEL-REVIEW.md` - GLM-5+Kimi+MiniMax 分工
+- **文件规范**: `docs/STANDARDIZATION.md` - 第 69 期起执行
