@@ -10753,6 +10753,338 @@
           "highlight": false
         }
       ]
+    },
+    {
+      "id": 69,
+      "date": "2026.03.07 - 2026.03.15",
+      "title": "十五五规划纲要发布，京东收入破万亿，妙可蓝多发布奶酪生态战略，蒙牛业绩预告...",
+      "summary": "十四届全国人大四次会议闭幕，十五五规划纲要全文发布；京东 2025 年全年收入 13091 亿元；妙可蓝多发布 13434 奶酪生态战略，官宣成为 2026FIFA 世界杯全球官方奶酪；蒙牛发布业绩预告，预计 2025 年经营利润率 7.9%-8.1%；贝因美跨界私护赛道；宠物经济进入国家级理论研究视野...",
+      "coverImage": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=800&h=600&fit=crop",
+      "tags": [
+        "两会政策",
+        "十五五规划",
+        "京东财报",
+        "奶酪生态",
+        "蒙牛业绩",
+        "贝因美跨界",
+        "宠物经济",
+        "AI 电商"
+      ],
+      "insight": {
+        "home": {
+          "title": "本周综述 Executive Summary",
+          "content": "本周宏观层面，十五五规划纲要正式发布，为未来五年发展指明方向。电商平台方面，京东 2025 年收入突破 1.3 万亿，豆包内测 AI 电商功能，小红书上线大牌低价频道。母婴行业，妙可蓝多发布奶酪生态战略，蒙牛发布业绩预告，新希望乳业赴港上市。宠物经济首次进入国家级理论研究视野，行业规范化发展加速。",
+          "type": "summary"
+        },
+        "宏观": {
+          "title": "宏观·洞察",
+          "risk": "美国对 16 个贸易伙伴发起 301 调查",
+          "opportunity": "十五五规划纲要发布，109 项重大工程项目",
+          "action": "关注两会政策导向"
+        },
+        "平台": {
+          "title": "平台·洞察",
+          "risk": "直播监管趋严",
+          "opportunity": "豆包内测 AI 电商，B 站首次盈利",
+          "action": "关注 AI 电商新趋势"
+        },
+        "跨境": {
+          "title": "跨境·洞察",
+          "risk": "地缘政治风险上升",
+          "opportunity": "亚马逊 Prime Day 提前，TikTok Shop 增长",
+          "action": "提前布局促销"
+        },
+        "美妆": {
+          "title": "美妆·洞察",
+          "risk": "供应链涨价潮",
+          "opportunity": "百雀羚重启彩妆，逸仙电商融资",
+          "action": "关注国货复苏"
+        },
+        "母婴": {
+          "title": "母婴·洞察",
+          "risk": "原奶价格波动",
+          "opportunity": "妙可蓝多奶酪战略，新希望赴港上市",
+          "action": "关注奶酪赛道"
+        },
+        "食品饮料": {
+          "title": "食品饮料·洞察",
+          "risk": "健康饮品竞争",
+          "opportunity": "中式养生水，无糖茶",
+          "action": "把握健康趋势"
+        },
+        "宠物": {
+          "title": "宠物·洞察",
+          "risk": "海关禁运影响",
+          "opportunity": "宠物经济国家级研究，赛博宠物增长",
+          "action": "关注规范化发展"
+        }
+      },
+      "data": [
+        {
+          "title": "十四届全国人大四次会议闭幕，十五五规划纲要发布",
+          "category": "宏观",
+          "subCategory": "政策",
+          "content": "3 月 12 日，十四届全国人大四次会议闭幕，大会批准政府工作报告、十五五规划纲要等。明确 2026 年发展主要预期目标：经济增长 4.5%-5%，城镇新增就业 1200 万人以上。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "我的钢铁网",
+          "url": "https://news.mysteel.com/a/26031423/28D770071664C662.html",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "前 2 个月我国出口 4.62 万亿元，同比增长 19.2%",
+          "category": "宏观",
+          "subCategory": "经济数据",
+          "content": "海关总署数据显示，前 2 个月我国货物贸易进出口总值 7.73 万亿元，同比增长 18.3%。2 月 CPI 同比涨 1.3%，为近三年来最高。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "我的钢铁网",
+          "url": "https://news.mysteel.com/a/26031423/28D770071664C662.html",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "美国对 16 个贸易伙伴发起 301 调查",
+          "category": "宏观",
+          "subCategory": "国际贸易",
+          "content": "美国贸易代表表示，美国将对包括中国、欧盟、墨西哥、越南、印度和日本在内的 16 个贸易伙伴发起 301 调查。",
+          "isAlert": true,
+          "highlight": false,
+          "source": "我的钢铁网",
+          "url": "https://news.mysteel.com/a/26031423/28D770071664C662.html",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "豆包内测 AI 电商功能：可在 App 内直接下单支付",
+          "category": "平台",
+          "subCategory": "战略",
+          "content": "2 月下旬，豆包开始内测购物下单功能，支持在豆包 App 内直接下单商品并完成支付，无需跳转抖音。豆包 DAU 达到 1.45 亿用户。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "亿邦动力",
+          "url": "https://mp.weixin.qq.com/s/i5eqeMznN6gVXCik4oe78w",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "京东 2025 年收入超 1.3 万亿，外卖业务 Q4 亏损环比收窄近 20%",
+          "category": "平台",
+          "subCategory": "财报",
+          "content": "京东集团 2025 年全年收入为 13091 亿元，同比增长 13.0%。2025 年全年经营利润 28 亿元。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "亿邦动力",
+          "url": "https://mp.weixin.qq.com/s/i5eqeMznN6gVXCik4oe78w",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "B 站 2025 年首次实现全年盈利，调整后净利 25.9 亿元",
+          "category": "平台",
+          "subCategory": "财报",
+          "content": "哔哩哔哩公布 2025 年财报，全年总营收 303.5 亿元，同比增长 13%，调整后净利润 25.9 亿元，首次实现全年盈利。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "亿邦动力",
+          "url": "https://mp.weixin.qq.com/s/i5eqeMznN6gVXCik4oe78w",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "小红书上线大牌低价频道好货市场",
+          "category": "平台",
+          "subCategory": "战略",
+          "content": "小红书电商市集近期上线新频道好货市场，由平台联合频道运营方及供货商家共同运营。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "亿邦动力",
+          "url": "https://mp.weixin.qq.com/s/i5eqeMznN6gVXCik4oe78w",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "亚马逊 Prime Day 或将提前至 6 月下旬",
+          "category": "跨境",
+          "subCategory": "战略",
+          "content": "据外媒报道，美国亚马逊或计划将 Prime Day 促销活动提前至 6 月下旬举办，这是该活动推出十年以来的罕见日程调整。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "亿邦动力",
+          "url": "https://mp.weixin.qq.com/s/RekIp4skVQwfYTo5fIY35g",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "TikTok Shop 今年 GMV 或将达 870 亿美元",
+          "category": "跨境",
+          "subCategory": "市场",
+          "content": "据最新报告预测，到 2026 年底，TikTok Shop 的 GMV 预计将达到约 870 亿美元，同比增长约 56%。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "亿邦动力",
+          "url": "https://mp.weixin.qq.com/s/RekIp4skVQwfYTo5fIY35g",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "速卖通推出海外托管卖光计划",
+          "category": "跨境",
+          "subCategory": "战略",
+          "content": "速卖通正式推出海外托管卖光计划，商家备货至海外仓后，平台对库存实行包销兜底。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "亿邦动力",
+          "url": "https://mp.weixin.qq.com/s/RekIp4skVQwfYTo5fIY35g",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "供应链首轮涨价潮：68 种化工产品价格上涨",
+          "category": "美妆",
+          "subCategory": "供应链",
+          "content": "受中东局势影响，卡波姆、硅油、表面活性剂等化妆品原料价格上行。巴斯夫、科思创等已宣布上调价格。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "用户说了",
+          "url": "https://mp.weixin.qq.com/s/-KDEPMT3zDtfPu_AcWyB_w",
+          "publishDate": "2026-03-13"
+        },
+        {
+          "title": "百雀羚重启彩妆：招聘 20 余岗位",
+          "category": "美妆",
+          "subCategory": "战略",
+          "content": "百雀羚彩妆正在招聘产品、市场、运营等岗位，涉及的职位多达 20 余个。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "用户说了",
+          "url": "https://mp.weixin.qq.com/s/-KDEPMT3zDtfPu_AcWyB_w",
+          "publishDate": "2026-03-13"
+        },
+        {
+          "title": "逸仙电商获 8.26 亿投资",
+          "category": "美妆",
+          "subCategory": "融资",
+          "content": "逸仙电商宣布将通过私募发行总额 1.2 亿美元的可转换优先票据，用于产品研发和全球化。",
+          "isAlert": true,
+          "highlight": false,
+          "source": "用户说了",
+          "url": "https://mp.weixin.qq.com/s/-KDEPMT3zDtfPu_AcWyB_w",
+          "publishDate": "2026-03-13"
+        },
+        {
+          "title": "妙可蓝多发布 13434 奶酪生态战略，官宣成为 2026FIFA 世界杯全球官方奶酪",
+          "category": "母婴",
+          "subCategory": "战略",
+          "content": "妙可蓝多发布 13434 奶酪生态型企业战略路线图，同时官宣成为 2026FIFA 世界杯全球官方奶酪。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "母婴行业观察",
+          "url": "https://mp.weixin.qq.com/s/hk8xOOj5PjJnFSDmCYJhfw",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "蒙牛发布业绩预告：预计 2025 年经营利润率 7.9%-8.1%",
+          "category": "母婴",
+          "subCategory": "财报",
+          "content": "蒙牛预计 2025 年经营利润率为 7.9%~8.1%，奶粉、奶酪、鲜奶等品类全年均取得双位数增长。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "母婴行业观察",
+          "url": "https://mp.weixin.qq.com/s/hk8xOOj5PjJnFSDmCYJhfw",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "新希望乳业拟赴港二次上市",
+          "category": "母婴",
+          "subCategory": "资本",
+          "content": "新希望乳业计划发行 H 股并在香港联交所主板挂牌上市，成为国内首家 A+H 两地上市乳企。",
+          "isAlert": true,
+          "highlight": false,
+          "source": "母婴行业观察",
+          "url": "https://mp.weixin.qq.com/s/hk8xOOj5PjJnFSDmCYJhfw",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "伊利上市 30 周年：营收突破千亿",
+          "category": "母婴",
+          "subCategory": "财报",
+          "content": "伊利发文庆祝上市 30 周年，营收突破千亿大关，增长超 500 倍。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "母婴行业观察",
+          "url": "https://mp.weixin.qq.com/s/hk8xOOj5PjJnFSDmCYJhfw",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "贝因美跨界私护：推出美娲系列卫生巾",
+          "category": "母婴",
+          "subCategory": "产品",
+          "content": "贝因美推出美娲系列卫生巾及小夜裤，分为 I 人/E 人系列。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "母婴行业观察",
+          "url": "https://mp.weixin.qq.com/s/hk8xOOj5PjJnFSDmCYJhfw",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "农夫山泉母公司上新百合麦冬汤本草饮料",
+          "category": "食品饮料",
+          "subCategory": "新品",
+          "content": "农夫山泉母公司养生堂在山姆上新百合麦冬汤本草饮料，0 糖 0 卡 0 脂。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "Foodaily",
+          "url": "https://www.foodaily.com/articles/41337",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "统一企业中国 2025 年收益达 317.14 亿元",
+          "category": "食品饮料",
+          "subCategory": "财报",
+          "content": "统一企业中国 2025 年集团收益达 317.14 亿元，较去年增长 4.6%。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "Foodaily",
+          "url": "https://www.foodaily.com/articles/41337",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "学习时报首谈陪伴经济，宠物服务成新业态",
+          "category": "宠物",
+          "subCategory": "政策",
+          "content": "中共中央党校学习时报刊发文章首谈陪伴经济，明确将宠物服务列为核心新业态。",
+          "isAlert": true,
+          "highlight": true,
+          "source": "用户提供",
+          "url": "",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "第 15 届深圳国际宠物展开幕",
+          "category": "宠物",
+          "subCategory": "展会",
+          "content": "3 月 12 日，第 15 届深圳国际宠物展在深圳会展中心正式开幕。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "用户提供",
+          "url": "",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "宁城猫砂产业爆发式增长",
+          "category": "宠物",
+          "subCategory": "产业",
+          "content": "内蒙古宁城县猫砂良品率从 70% 跃升至 90%，产量占全国三分之二。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "用户提供",
+          "url": "",
+          "publishDate": "2026-03-15"
+        },
+        {
+          "title": "全球首款 AI 宠物心电衣亮相",
+          "category": "宠物",
+          "subCategory": "产品",
+          "content": "PetBeat.Al 卡帕心发布全球首款次抛型宠物智能心电衣，AI 分析准确率超 95%。",
+          "isAlert": false,
+          "highlight": false,
+          "source": "用户提供",
+          "url": "",
+          "publishDate": "2026-03-15"
+        }
+      ]
     }
   ]
 }
